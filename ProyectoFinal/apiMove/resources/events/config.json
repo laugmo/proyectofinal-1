@@ -41,12 +41,12 @@
 			"id": "description",
 			"order": 4
 		},
-		"admin": {
-			"name": "admin",
-			"type": "object",
-			"typeLabel": "object",
+		"adminId": {
+			"name": "adminId",
+			"type": "string",
+			"typeLabel": "string",
 			"required": false,
-			"id": "admin",
+			"id": "adminId",
 			"order": 5
 		},
 		"participants": {
