@@ -7,6 +7,9 @@
         "**/*.txt"
     ],
     "dependencies": {
+        "angular": "latest",
+        "requirejs": "latest",
+        "requirejs-domready": "latest"
     },
     "devDependencies": {
     }
