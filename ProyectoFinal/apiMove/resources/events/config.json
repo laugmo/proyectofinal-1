@@ -1,0 +1,69 @@
+{
+	"type": "Collection",
+	"properties": {
+		"name": {
+			"name": "name",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "name",
+			"order": 0
+		},
+		"date": {
+			"name": "date",
+			"type": "object",
+			"typeLabel": "object",
+			"required": true,
+			"id": "date",
+			"order": 1
+		},
+		"location": {
+			"name": "location",
+			"type": "object",
+			"typeLabel": "object",
+			"required": false,
+			"id": "location",
+			"order": 2
+		},
+		"urlLogo": {
+			"name": "urlLogo",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "urlLogo",
+			"order": 3
+		},
+		"description": {
+			"name": "description",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "description",
+			"order": 4
+		},
+		"admin": {
+			"name": "admin",
+			"type": "object",
+			"typeLabel": "object",
+			"required": false,
+			"id": "admin",
+			"order": 5
+		},
+		"participants": {
+			"name": "participants",
+			"type": "array",
+			"typeLabel": "array",
+			"required": false,
+			"id": "participants",
+			"order": 6
+		},
+		"public": {
+			"name": "public",
+			"type": "boolean",
+			"typeLabel": "boolean",
+			"required": false,
+			"id": "public",
+			"order": 7
+		}
+	}
+}
