@@ -2,21 +2,19 @@
 
 /* User Module */
 
-angular.module('app.users', [])
+angular.module('app.user', [])
         .config(['$routeProvider', function config($routeProvider) {
-                $routeProvider.when('/users', {
+                $routeProvider.when('/user', {
                     controller: 'UserController',
-                    templateUrl: 'partials/_users.html'
+                    templateUrl: 'partials/_user.html'
                 });
-            }]);
-
-angular.module('app.users')
+            }])
         .controller('UserController', ['$scope', function($scope) {
                 dpd.users.get(function (result, err) {
                     if (err) {
                         // Alert if there's an error
                         return alert(err.message || "Error al buscar usuarios");
                     }
-                    $scope.usuarios = result;
+                    this.usuarios = result;
                 });
             }]);

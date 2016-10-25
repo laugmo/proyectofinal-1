@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="moveApp">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container" ng-controller="EventsController" ng-cloak>
+            <h1>Crear Evento</h1>
+            <p id="empty" ng-hide="eventos.length || !loaded">No tienes eventos! Crea uno ahora:</p>
+            <ul id="events" class="unstyled">
+                <li ng-repeat="evento in eventos">
+                    <label>
+                        {{evento.name}}
+                    </label>
+                    <label>
+                        {{evento.date}}
+                    </label>
+                </li>
+            </ul>
+            <form class="form-inline">
+                <input id="event-title" type="text" ng-model="titleEvent" />
+                Fecha:
+                <input id="event-date" type="date" ng-model="dateEvent" />
+                Hora:
+                <input id="event-time" type="time" ng-model="timeEvent" />
+                Dirección:
+                <input id="event-address" type="text" ng-model="addressEvent" />
+                Descripción:
+                <input id="event-descr" type="text" ng-model="descrEvent" />
+                Agregar logo:
+                <input id="event-logo" type="file" ng-model="logoEvent" />
+                Evento publico:
+                <input id="event-pub" type="checkbox" ng-model="pubEvent" />
+                
+                <button id="add-btn" class="btn btn-success" ng-click="addEvent(titleEvent,dateEvent,timeEvent,addressEvent,descrEvent,logoEvent,pubEvent)">Crear</button>
+            </form>
+            <p>
+                <a href id="remove-completed-btn" ng-click="removeCompletedItems()">Remove completed items</a>
+            </p>
+        </div>
+    </body>
+</html>
