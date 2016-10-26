@@ -5,9 +5,45 @@
         <!--<link rel="stylesheet" href="css/bootstrap.min.css" />-->
     </head>
     <body>
+        <!--The search box puts the term into $scope.searchTerm
+            and calls $scope.search() on submit -->
+    <div class="container" ng-controller="SearchEventController as searchEventC">
+            
+        <section class="searchField">
+            <form ng-submit="searchEvent()">
+                <input type="text" id="nombreBarrioDeporte" ng-model="searchTerm" placeholder="Ingrese el nombre del evento,barrio o deporte" />
+                <input type="submit" value="Buscar Eventos" />
+            </form>
+        </section>
+        
+        <!-- In the resulsts, we show a message if there are no results, and
+            a list otherwise-->
+        <section class="results">
+            <div ng-show="!searchEventC.eventos.length">No se encontraron eventos</div>
+        <!-- We show one of these elements for each event in $scope.events.
+            The ng-cloak directive prevents our templates from showing on load-->
+            <article class="event" ng-repeat="event in searchEventC.eventos" ng-cloak>
+                <h2>
+                    {{event.name}}
+                    {{event.location}}
+                    {{event.date}}
+                </h2>
+            </article>
+        
+        <!-- We put a link that calls $scope.loadMore to load more events
+            and append them to the results. -->
+        
+            <div class="load-more" ng-hide="allResults"ng-cloak >
+                <a ng-click="loadMore()">Ver más eventos...</a>
+            </div>
+        </section>
+        
+    </div>      
+        
+        
         <div class="container" ng-controller="EventController as eventC">
             <form class="form-inline">
-                <input id="nombreBarrioDeporte" type="text" placeholder="Ingrese el nombre del evento,barrio o deporte"/>
+                <input id="nombreBarrioDeporte1" type="text" placeholder="Ingrese el nombre del evento,barrio o deporte"/>
                 <button id="search" class="btn btn-success" ng-submit="find()">Buscar</button>
             </form>
             <h1>Welcome to Deployd!</h1>
