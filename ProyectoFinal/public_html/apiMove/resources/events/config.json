@@ -64,6 +64,14 @@
 			"required": false,
 			"id": "public",
 			"order": 7
+		},
+		"sports": {
+			"name": "sports",
+			"type": "object",
+			"typeLabel": "object",
+			"required": true,
+			"id": "sports",
+			"order": 8
 		}
 	}
 }
