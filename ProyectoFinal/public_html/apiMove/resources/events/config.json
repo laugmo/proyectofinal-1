@@ -64,6 +64,30 @@
 			"required": false,
 			"id": "public",
 			"order": 7
+		},
+		"sports": {
+			"name": "sports",
+			"type": "object",
+			"typeLabel": "object",
+			"required": true,
+			"id": "sports",
+			"order": 8
+		},
+		"area": {
+			"name": "area",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "area",
+			"order": 9
+		},
+		"discipline": {
+			"name": "discipline",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "discipline",
+			"order": 10
 		}
 	}
 }

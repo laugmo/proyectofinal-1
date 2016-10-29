@@ -16,7 +16,7 @@ angular.module('app.events', [])
         dpd.users.get(function (result, err) {
             if (err) {
                 // Alert if there's an error
-                return alert(err.message || "Error al buscar usuarios");
+                return alert(err.message || "Error al buscar eventos");
             }
             $scope.usuarios = result;
         });
