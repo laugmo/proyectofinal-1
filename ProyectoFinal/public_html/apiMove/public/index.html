@@ -5,7 +5,18 @@
         <!--<link rel="stylesheet" href="css/bootstrap.min.css" />-->
     </head>
     <body>
+        <!--
+        <div class="nav-list" ng-controller="IndexController as userC">
+             <a href="partials/_home.html">Search events</a>
+             <a href="partials/_events.html">Create a new event</a>           
+        </div>
+        <div  class="hero-unit"></div>
+        <div class="media-body">
+            <div ng-view=""></div>
+        </div>
+        -->
         <div class="container" ng-controller="IndexController as userC">
+        
             <h1>Welcome to Deployd!</h1>
             <ul>
                 <li>
@@ -13,6 +24,9 @@
                 </li>
                 <li>
                     <p>Create a new event<a href="partials/_events.html"> here</a>.</p>
+                </li>
+                <li>
+                    <p>Check users<a href="partials/_user.html"> here</a>.</p>
                 </li>
             </ul>
             
@@ -23,8 +37,11 @@
         <script type="text/javascript" src="/js/lib/jquery.js"></script>
         <script type="text/javascript" src="/dpd.js"></script>
         
-        <!-- ANGULAR -->
+        <!-- ANGULAR 
         <script type="text/javascript" src="/js/lib/angular.min.js"></script>
+        <script type="text/javascript" src="../js/app.js"></script>
+        -->
+        <script type="text/javascript" src="/js/lib/angular.js"></script>        
         <script type="text/javascript" src="/js/main.js"></script>
     </body>
 </html>
