@@ -2,27 +2,27 @@
 <html ng-app="app.home">
     <head>
         <title>Move</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../css/bootstrap.min.css" />
     </head>
     <body>
 
     <div class="container" ng-controller="SearchEventController" ng-cloak>
         <h1>Buscar Eventos</h1>
         <section class="searchField">
-            <form ng-submit="searchEvent()">
+            <form >
                 <input type="text" id="nombreBarrioDeporte" ng-model="searchTerm" placeholder="Ingrese el nombre del evento,barrio o deporte" />
-                <input type="submit" value="Buscar Eventos" />
+                <button ng-click="searchEvent()" >Buscar Eventos</button>
             </form>
       
             <div id="empty" ng-hide="eventos.length || !loaded">No se encontraron eventos</div>
  
         <ul id="events" class="unstyled">
             <li ng-repeat="evento in eventos">
-                <label class="alert-block">{{evento.name}}</label></br>
-                ****<label class="alert">{{evento.location.address}}</label></br>
-                ****<label class="alert">{{evento.location.neighbourhood}}</label></br>
-                ****<label class="alert">{{evento.date.date}}</label></br>
-                ****<label class="alert">{{evento.date.time}}</label></br>
+                <label class="alert">{{evento.name}}</label></br>
+                <label class="alert">{{evento.location.address}}</label></br>
+                <label class="alert">{{evento.location.neighbourhood}}</label></br>
+                <label class="alert">{{evento.date.date}}</label></br>
+                <label class="alert">{{evento.date.time}}</label></br>
             </li>   
         </ul>
               
@@ -61,6 +61,7 @@
         </div>-->
         
         <script type="text/javascript" src="../js/lib/jquery.js"></script>
+        <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
         <script type="text/javascript" src="../dpd.js"></script>
         
         <!-- ANGULAR -->
