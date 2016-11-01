@@ -84,18 +84,24 @@ angular.module('app.home', [])
                 });
             }])
         .controller('SearchEventController', ['$scope', function ($scope) {
-                $scope.searchEvent = function (result, err) {
+                $scope.searchEvent = function (/*result, err*/) {
                     if ($scope.searchTerm) {
                         dpd.events.get({$or:
-                                    [{name: $scope.searchTerm},
-                                        {area: $scope.searchTerm},
-                                        {discipline: $scope.searchTerm}]
+                                    [{name: {$regex: '^.*' + $scope.searchTerm + '.*$',
+                $options: 'i'
+              }},
+                                        {area: {$regex: '^.*' + $scope.searchTerm + '.*$',
+                $options: 'i'
+              }},
+                                        {discipline: {$regex: '^.*' + $scope.searchTerm + '.*$',
+                $options: 'i'
+              }}]
                         },
-                                function (result, err) {
-                                    if (err) {
+                                function (result) {
+                                   /* if (err) {
                                         // Alert if there's an error
                                         return alert(err.message || "Error al buscar eventos");
-                                    }
+                                    }*/
                                     $scope.eventos = result;
                                 });
 
