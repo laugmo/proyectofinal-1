@@ -1,2 +1,4 @@
 nbproject/
 node_modules/
+public_html/apiMove/data/mongod.lock
+public_html/.dpd/
