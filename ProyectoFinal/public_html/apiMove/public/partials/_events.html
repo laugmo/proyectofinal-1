@@ -4,46 +4,63 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html ng-app="moveApp">
+<html ng-app="app.events">
     <head>
         <title>TODO supply a title</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css" />
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div class="container" ng-controller="EventsController" ng-cloak>
+    </head> 
+    <body ng-controller="EventsController" ng-init="init()">
+        <div class="container" ng-cloak>
             <h1>Crear Evento</h1>
-            <p id="empty" ng-hide="eventos.length || !loaded">No tienes eventos! Crea uno ahora:</p>
-            <ul id="events" class="unstyled">
-                <li ng-repeat="evento in eventos">
-                    <label>
-                        {{evento.name}}
-                    </label>
-                    <label>
-                        {{evento.date}}
-                    </label>
-                </li>
-            </ul>
+            <label class="alert" ng-hide="eventos.length">No tienes eventos! Crea uno ahora:</label>
             <form class="form-inline">
-                <input id="event-title" type="text" ng-model="titleEvent" />
+                Nombre del Evento:
+                <input id="event-title" type="text" ng-model="titleEvent" /></br>
                 Fecha:
-                <input id="event-date" type="date" ng-model="dateEvent" />
+                <input id="event-date" type="date" ng-model="dateEvent" /></br>
                 Hora:
-                <input id="event-time" type="time" ng-model="timeEvent" />
+                <input id="event-time" type="time" ng-model="timeEvent" /></br>
                 Dirección:
-                <input id="event-address" type="text" ng-model="addressEvent" />
+                <input id="event-address" type="text" ng-model="addressEvent" /></br>
+                Barrio:
+                <input id="event-neighb" type="text" ng-model="neighbEvent" /></br>
+                Ciudad:
+                <input id="event-city" type="text" ng-model="cityEvent" /></br>
+                País:
+                <input id="event-country" type="text" ng-model="countryEvent" /></br>
                 Descripción:
-                <input id="event-descr" type="text" ng-model="descrEvent" />
+                <input id="event-descr" type="text" ng-model="descrEvent" /></br>
                 Agregar logo:
-                <input id="event-logo" type="file" ng-model="logoEvent" />
+                <input id="event-logo" type="file" ng-model="logoEvent" /></br>
                 Evento publico:
-                <input id="event-pub" type="checkbox" ng-model="pubEvent" />
-                
-                <button id="add-btn" class="btn btn-success" ng-click="addEvent(titleEvent,dateEvent,timeEvent,addressEvent,descrEvent,logoEvent,pubEvent)">Crear</button>
+                <input id="event-pub" type="checkbox" ng-model="pubEvent" /></br></br>
+                <button id="add-btn" class="btn" ng-click="addEvent(titleEvent, dateEvent, timeEvent, addressEvent, neighbEvent, cityEvent, countryEvent, descrEvent, logoEvent, pubEvent)">Crear Evento</button>
             </form>
-            <p>
-                <a href id="remove-completed-btn" ng-click="removeCompletedItems()">Remove completed items</a>
-            </p>
+            <div>
+                <h2>Eventos:</h2>
+                <ul id="events" class="unstyled">
+                    <li ng-repeat="evento in eventos">
+                        <label class="clearfix"><b>{{evento.name}}</b></label>
+                        <label>{{evento.location.address}}</label>
+                        <label>{{evento.location.neighbourhood}}</label>
+                        <label>{{evento.date.date}}</label>
+                        <label>{{evento.date.time}}</label>
+                        </br>
+                    </li>   
+                </ul>
+            </div>
         </div>
+
+        <!-- libs -->
+        <script type="text/javascript" src="../js/lib/jquery.js"></script>
+        <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../dpd.js"></script>
+
+        <!-- ANGULAR -->
+        <script type="text/javascript" src="../js/lib/angular.js"></script>
+        <script type="text/javascript" src="../js/modules/events.js"></script>
     </body>
 </html>
