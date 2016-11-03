@@ -37,7 +37,6 @@ angular.module('app.home', [])
                     }
                 };
 
-<<<<<<< HEAD
             }])
         .controller('GetEventsController', ['$scope', function ($scope) {
                 $scope.loadMore = function () {
@@ -51,6 +50,4 @@ angular.module('app.home', [])
                     });
                 };
             }]);
-=======
-            }]);
->>>>>>> 0935babcdec29816071e7d9867f3a2f33c2ba98c
+
