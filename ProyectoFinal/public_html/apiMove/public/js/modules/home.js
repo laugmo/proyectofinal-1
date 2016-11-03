@@ -84,7 +84,7 @@ angular.module('app.home', [])
                 });
             }])
         .controller('SearchEventController', ['$scope', function ($scope) {
-                $scope.searchEvent = function (/*result, err*/) {
+                $scope.searchEvent = function () {
                     if ($scope.searchTerm) {
                         dpd.events.get({$or:
                                     [{name: {$regex: '^.*' + $scope.searchTerm + '.*$',
