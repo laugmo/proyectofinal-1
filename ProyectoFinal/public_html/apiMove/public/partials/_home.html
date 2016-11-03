@@ -6,64 +6,49 @@
     </head>
     <body>
 
-    <div class="container" ng-controller="SearchEventController" ng-cloak>
-        <h1>Buscar Eventos</h1>
-        <section class="searchField">
-            <form >
-                <input type="text" id="nombreBarrioDeporte" ng-model="searchTerm" placeholder="Ingrese el nombre del evento,barrio o deporte" />
-                <button ng-click="searchEvent()" >Buscar Eventos</button>
-            </form>
-      
-            <div id="empty" ng-hide="eventos.length || !loaded">No se encontraron eventos</div>
- 
-        <ul id="events" class="unstyled">
-            <li ng-repeat="evento in eventos">
-                <label class="alert">{{evento.name}}</label></br>
-                <label class="alert">{{evento.location.address}}</label></br>
-                <label class="alert">{{evento.location.neighbourhood}}</label></br>
-                <label class="alert">{{evento.date.date}}</label></br>
-                <label class="alert">{{evento.date.time}}</label></br>
-            </li>   
-        </ul>
-              
-            <div class="load-more" ng-hide="allResults"ng-cloak >
-                <a ng-click="loadMore()">Ver más eventos...</a>
-            </div>
-        </section>
-        
-    </div>      
-        <!-- 
-        
-        <div class="container" ng-controller="EventController as eventC">
-            <form class="form-inline">
-                <input id="nombreBarrioDeporte1" type="text" placeholder="Ingrese el nombre del evento,barrio o deporte"/>
-                <button id="search" class="btn btn-success" ng-submit="find()">Buscar</button>
-            </form>
-            <h1>Welcome to Deployd!</h1>
-            <p>You've just created a Deployd app. You can add front-end files in the <code>public</code> folder.</p>
-            <p>If you're new to Deployd, have a look at the <a href="http://docs.deployd.com/docs/getting-started/what-is-deployd.html">Getting Started Guide</a> or <a href="http://docs.deployd.com/docs/getting-started/your-first-api.html">Hello World Tutorial</a>.</p>
-            <h1>Usuarios</h1>
-            <p ng-show="!eventC.eventos.length">No se encontraron eventos</p>
-            <ul ng-show="eventC.eventos.length">
-                <li ng-repeat="evento in eventC.eventos">
-                    <p>{{evento.name}}</p>
-                    <p>{{evento.date}}</p>
-                    <p>{{evento.address}}</p>
-                </li>
+        <div class="container" ng-controller="SearchEventController" ng-cloak>
+            <h1>Buscar Eventos</h1>
+            <section class="searchField">
+                <form >
+                    <input type="text" id="nombreBarrioDeporte" ng-model="searchTerm" placeholder="Ingrese el nombre del evento,barrio o deporte" />
+                    <button ng-click="searchEvent()" >Buscar Eventos</button>
+                </form>
+
+                <div id="empty" ng-hide="eventos.length || !loaded">No se encontraron eventos</div>
+
+                <ul id="events" class="unstyled">
+                    <li ng-repeat="evento in eventos">
+                        <label class="alert-success">{{evento.name}}</label></br>
+                        <label class="alert-success">{{evento.location.address}}</label></br>
+                        <label class="alert-success">{{evento.location.neighbourhood}}</label></br>
+                        <label class="alert-success">{{evento.date.date}}</label></br>
+                        <label class="alert-success">{{evento.date.time}}</label></br>
+                    </li>   
+                </ul>
+
+
+            </section>
+
+        </div>   
+        <div class="load-more" ng-controller="GetEventsController" ng-cloak >
+            <a ng-click="loadMore()">Ver más eventos...</a>
+            <div id="empty" ng-hide="eventos.length || !loaded">No hay más eventos</div>
+
+            <ul id="masEvents" class="unstyled" >
+                <li ng-repeat="evento in eventos">
+                    <hr>
+                    <label class="alert-info">{{evento.name}}</label></br>
+                    <label class="alert-info">{{evento.location.address}}</label></br>
+                    <label class="alert-info">{{evento.location.neighbourhood}}</label></br>
+                    <label class="alert-info">{{evento.date.date}}</label></br>
+                    <label class="alert-info">{{evento.date.time}}</label></br>
+                </li>   
             </ul>
-            <form class="form-inline">
-                <input id="todo-title" type="text" />
-                <button id="add-btn" class="btn btn-success">Agregar</button>
-            </form>
-            <p>
-                <a href id="remove-completed-btn">Eliminar completados</a>
-            </p>
-        </div>-->
-        
+        </div>
         <script type="text/javascript" src="../js/lib/jquery.js"></script>
         <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
         <script type="text/javascript" src="../dpd.js"></script>
-        
+
         <!-- ANGULAR -->
         <script type="text/javascript" src="../js/lib/angular.js"></script>
         <script type="text/javascript" src="../js/modules/home.js"></script>
