@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="app.login">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    </head>
+    <body ng-controller="LoginController">
+        <div class="container">
+            <h1>Login</h1>
+            <form>
+                <label>Usuario:</label>
+                <input type="text" ng-model="username" id="username" />
+                <label>Contraseña:</label>
+                <input type="password" ng-model="password" id="password"/><br />
+                <button class="btn btn-primary" ng-click="submitLogin(username,password)">Login</button>
+                <a ng-click="signUp()" class="btn btn-link">Registrarse</a>
+            </form>
+        </div>
+        
+        <!-- libs -->
+        <script type="text/javascript" src="../js/lib/jquery.js"></script>
+        <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../dpd.js"></script>
+
+        <!-- ANGULAR -->
+        <script type="text/javascript" src="../js/lib/angular.js"></script>
+        <script type="text/javascript" src="../js/modules/events.js"></script>
+    </body>
+</html>
