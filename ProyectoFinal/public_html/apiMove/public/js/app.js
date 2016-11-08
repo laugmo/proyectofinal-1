@@ -11,7 +11,7 @@ angular.module('app', ['app.home', 'app.user', 'app.events', 'app.login', 'app.r
                         if (user) {
                             alert("Welcome, " + user.username + "!");
                         } else {
-                            location.href = "../partials/_login.html";
+                            location.href = "partials/_login.html";
                         }
                     });
                 };
@@ -19,7 +19,7 @@ angular.module('app', ['app.home', 'app.user', 'app.events', 'app.login', 'app.r
                 
                 $scope.logout = function () {
                     dpd.users.logout(function (res, err) {
-                        location.href = "../partials/_login.html";
+                        location.href = "partials/_login.html";
                     });
                 };
             }]);
