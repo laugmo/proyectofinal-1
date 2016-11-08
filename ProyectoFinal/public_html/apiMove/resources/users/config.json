@@ -1,37 +1,21 @@
 {
-	"type": "Collection",
+	"type": "UserCollection",
 	"properties": {
-		"user": {
-			"name": "user",
-			"type": "string",
-			"typeLabel": "string",
-			"required": true,
-			"id": "user",
-			"order": 0
-		},
-		"pass": {
-			"name": "pass",
-			"type": "string",
-			"typeLabel": "string",
-			"required": true,
-			"id": "pass",
-			"order": 1
-		},
 		"name": {
 			"name": "name",
 			"type": "string",
 			"typeLabel": "string",
 			"required": true,
 			"id": "name",
-			"order": 2
+			"order": 0
 		},
-		"corp": {
-			"name": "corp",
+		"corporation": {
+			"name": "corporation",
 			"type": "boolean",
 			"typeLabel": "boolean",
-			"required": false,
-			"id": "corp",
-			"order": 3
+			"required": true,
+			"id": "corporation",
+			"order": 1
 		},
 		"birthDate": {
 			"name": "birthDate",
@@ -39,7 +23,7 @@
 			"typeLabel": "object",
 			"required": false,
 			"id": "birthDate",
-			"order": 4
+			"order": 2
 		},
 		"age": {
 			"name": "age",
@@ -47,7 +31,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "age",
-			"order": 5
+			"order": 3
 		},
 		"address": {
 			"name": "address",
@@ -55,7 +39,7 @@
 			"typeLabel": "string",
 			"required": false,
 			"id": "address",
-			"order": 6
+			"order": 4
 		},
 		"neighbourhood": {
 			"name": "neighbourhood",
@@ -63,7 +47,7 @@
 			"typeLabel": "string",
 			"required": false,
 			"id": "neighbourhood",
-			"order": 7
+			"order": 5
 		},
 		"city": {
 			"name": "city",
@@ -71,7 +55,7 @@
 			"typeLabel": "string",
 			"required": false,
 			"id": "city",
-			"order": 8
+			"order": 6
 		},
 		"country": {
 			"name": "country",
@@ -79,7 +63,7 @@
 			"typeLabel": "string",
 			"required": false,
 			"id": "country",
-			"order": 9
+			"order": 7
 		},
 		"phone": {
 			"name": "phone",
@@ -87,7 +71,7 @@
 			"typeLabel": "string",
 			"required": false,
 			"id": "phone",
-			"order": 10
+			"order": 8
 		},
 		"sports": {
 			"name": "sports",
@@ -95,7 +79,7 @@
 			"typeLabel": "array",
 			"required": false,
 			"id": "sports",
-			"order": 11
+			"order": 9
 		},
 		"urlPhoto": {
 			"name": "urlPhoto",
@@ -103,7 +87,7 @@
 			"typeLabel": "string",
 			"required": false,
 			"id": "urlPhoto",
-			"order": 12
+			"order": 10
 		},
 		"points": {
 			"name": "points",
@@ -111,7 +95,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "points",
-			"order": 13
+			"order": 11
 		},
 		"skills": {
 			"name": "skills",
@@ -119,7 +103,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "skills",
-			"order": 14
+			"order": 12
 		}
 	}
 }
