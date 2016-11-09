@@ -8,7 +8,6 @@ angular.module('app.events', [])
                     controller: 'EventsController',
                     templateUrl: 'partials/_events.html'
                 });
-                $routeProvider.allowGlobals();
             }])
         .controller('EventsController', ['$scope', function ($scope) {
                  

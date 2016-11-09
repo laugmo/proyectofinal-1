@@ -18,24 +18,24 @@ angular.module('app.user', [])
 //                this.usuarios = result;
 //            });
 //        }])
-          .controller('LoginController', ['$scope', function ($scope) {
-                $scope.userLogin = function () {
-                    if ($scope.userName && $scope.userPwd) {
-                        dpd.users.login({
-                            user: $scope.userName,
-                            pass: $scope.userPwd}
-                        , function (session, error) {
-                            if (error) {
-                                // Alert if there's an error
-                                return alert(error.message || "Error al buscar usuarios");
-                            }
-                            $scope.user = session;
-                            console.log(session);
-                            location.href = "/_home.html";
-                        });
-                    }
-                };
-            }]);
+//          .controller('LoginController', ['$scope', function ($scope) {
+//                $scope.userLogin = function () {
+//                    if ($scope.userName && $scope.userPwd) {
+//                        dpd.users.login({
+//                            user: $scope.userName,
+//                            pass: $scope.userPwd}
+//                        , function (session, error) {
+//                            if (error) {
+//                                // Alert if there's an error
+//                                return alert(error.message || "Error al buscar usuarios");
+//                            }
+//                            $scope.user = session;
+//                            console.log(session);
+//                            location.href = "/_home.html";
+//                        });
+//                    }
+//                };
+//            }]);
 
       /*  .controller('GenerateSuggestion', ['$scope', function ($scope) {
             $scope.searchEvent = function () {

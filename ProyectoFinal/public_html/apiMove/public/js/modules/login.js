@@ -26,6 +26,6 @@ angular.module('app.login', [])
                     return false;
                 };
                 $scope.signUp = function () {
-                    location.href = "partials/_register.html";
+                    location.href = "_register.html";
                 };
             }]);
