@@ -10,13 +10,17 @@
         <div class="container">
             <h1>Register</h1>
             <form>
-                <label>Usuario:</label>
+                <label>Usuario o mail:</label>
                 <input type="text" ng-model="username" id="username" />
+                <label>Nombre:</label>
+                <input type="text" ng-model="name" id="name" />
                 <label>Contraseña:</label>
                 <input type="password" ng-model="password" id="password" />
                 <label>Confirmar contraseña:</label>
                 <input type="password" ng-model="confirm" id="confirm" /><br />
-                <button ng-click="submitRegister()" class="btn btn-primary">Sign up</button>
+                <label>Indica si eres una empresa</label>
+                <input type="checkbox" ng-model="corp" id="corp" />
+                <button ng-click="submitRegister(username,name,password,corp,confirm)" class="btn btn-primary">Sign up</button>
                 <a ng-click="login()" class="btn btn-link">Ya tengo una cuenta</a>
             </form>
         </div>
@@ -28,6 +32,6 @@
 
         <!-- ANGULAR -->
         <script type="text/javascript" src="../js/lib/angular.js"></script>
-        <script type="text/javascript" src="../js/modules/events.js"></script>
+        <script type="text/javascript" src="../js/modules/register.js"></script>
     </body>
 </html>

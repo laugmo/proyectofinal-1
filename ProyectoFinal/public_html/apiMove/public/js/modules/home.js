@@ -1,8 +1,4 @@
-
-
 'use strict';
-
-var moveApp = angular.module('app', []);
 
 angular.module('app.home', [])
         .config(['$routeProvider', function config($routeProvider) {

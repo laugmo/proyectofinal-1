@@ -10,7 +10,7 @@ angular.module('app.register', [])
                 });
             }])
         .controller('RegisterController', ['$scope', function ($scope) {
-                $scope.submitRegister = function (username, password, confirm) {
+                $scope.submitRegister = function (username, name, password, corp, confirm) {
                     if (!username) {
                         alert("Username is required");
                     } else if (!password) {
@@ -18,7 +18,7 @@ angular.module('app.register', [])
                     } else if (password !== confirm) {
                         alert("Passwords do not match");
                     } else {
-                        dpd.users.post({username: username, password: password}, function (user, error) {
+                        dpd.users.post({username: username, password: password, name: name, corporation: corp}, function (user, error) {
                             if (error) {
                                 alert(JSON.stringify(error));
                             } else {
