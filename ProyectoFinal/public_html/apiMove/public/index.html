@@ -6,6 +6,8 @@
     </head>
     <body ng-controller="IndexController">
         <div class="container">
+            <div ng-include="'partials/_header.html'"></div>
+            <div ng-include="'partials/_home.html'"></div>
             <h1>Welcome to Deployd!</h1>
             <ul>
                 <li>
@@ -24,6 +26,7 @@
         </div>
 
         <script type="text/javascript" src="/js/lib/jquery.js"></script>
+        <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
         <script type="text/javascript" src="/dpd.js"></script>
 
         <!-- ANGULAR -->

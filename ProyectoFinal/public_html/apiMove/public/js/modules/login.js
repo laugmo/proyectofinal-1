@@ -12,9 +12,20 @@ angular.module('app.login', [])
         .controller('LoginController', ['$scope', function ($scope) {
                 dpd.users.me(function (user) {
                     if (user) {
-                        location.href = "/index.html";
-                    }
+                        $scope.userLoaded = true;
+                        $scope.currentUser = user;
+                    }else 
+                    $scope.userLoaded = false;
                 });
+
+                $scope.showLogin = function (val) {
+                    $scope.loginVisible = val;
+                    if (val) {
+                        $scope.username = '';
+                        $scope.password = '';
+                    }
+                };
+
                 $scope.submitLogin = function (username, password) {
                     dpd.users.login({username: username, password: password}, function (session, error) {
                         if (error) {
