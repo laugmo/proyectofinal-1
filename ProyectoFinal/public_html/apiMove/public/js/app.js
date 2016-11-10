@@ -6,16 +6,17 @@ angular.module('app', ['app.home', 'app.user', 'app.events', 'app.login', 'app.r
             $routeProvider.otherwise({redirectTo: '/home'});
         })
         .controller('IndexController', function ($scope) {
-                $scope.init = function () {
-                    dpd.users.me(function (user) {
-                        if (user) {
-                            alert("Welcome, " + user.username + "!");
-                        } else {
-                            location.href = "partials/_login.html";
-                        }
-                    });
-                };
-                $scope.init();
+//                $scope.init = function () {
+//                    dpd.users.me(function (user) {
+//                        if (user) {
+//                            alert("Welcome, " + user.username + "!");
+//                            location.href = "partials/_user.html";
+//                        } else {
+//                            location.href = "partials/_home.html";
+//                        }
+//                    });
+//                };
+//                $scope.init();
                 
                 $scope.logout = function () {
                     dpd.users.logout(function (res, err) {
