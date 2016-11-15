@@ -17,12 +17,19 @@ angular.module('app', ['app.home', 'app.user', 'app.events', 'app.login', 'app.r
 //                    });
 //                };
 //                $scope.init();
-                
-                $scope.logout = function () {
-                    dpd.users.logout(function (res, err) {
-                        location.href = "partials/_login.html";
-                    });
-                };
+            dpd.users.me(function (user) {
+                if (user) {
+                    $scope.userLoaded = true;
+                    $scope.currentUser = user;
+                } else
+                    $scope.userLoaded = false;
             });
 
-        
+            $scope.logout = function () {
+                dpd.users.logout(function (res, err) {
+                    location.href = "partials/_login.html";
+                });
+            };
+        });
+
+
