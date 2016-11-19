@@ -7,22 +7,20 @@
     <body ng-controller="IndexController">
         <div class="container">
             <!--<div ng-include="'partials/_header.html'"></div>-->
-            <div ng-app="app.login">
-                <div class="header" ng-controller="LoginController">
+                <div class="header">
                     <div class="clearfix">
                         <h1 class="pull-left"><a href="/">Move</a></h1>
                         <div class="welcome pull-right">
-                            <span ng-show="userLoaded">Bienvenido, {{currentUser.username}}! <a href ng-click="logout()">Logout</a></span>
+                            <span ng-show="userLoaded">Bienvenido, {{currentUser.username}}! <a ng-click="logout()">Logout</a></span>
                             <!--<span ng-hide="userLoaded"><a href ng-click="showLogin(true)">Login</a> o <a ng-click="goToRegister()">Registrarse</a></span>-->
                             <!-- Button trigger modal -->
-                            <span ng-show="userLoaded">
+                            <span ng-hide="userLoaded">
                                 <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loginModal">Login</a>
                                 <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registerModal">Registrarse</a>
                             </span>
                         </div>
                     </div>     
                 </div>
-            </div>
 
             <div ng-include="'partials/_home.html'"></div>
             <h1>Welcome to Deployd!</h1>
@@ -92,17 +90,25 @@
                 <h4 class="modal-title" id="myModalLabel">Login</h4>
             </div>
             <div class="modal-body">
-                <form>
-                    <label>Usuario:</label>
-                    <input type="text" ng-model="username" id="username" />
-                    <label>Contraseña:</label>
-                    <input type="password" ng-model="password" id="password"/><br />
-                    <button class="btn btn-primary" ng-click="submitLogin(username, password)">Login</button>
-                </form>
+                <h1>Register</h1>
+            <form>
+                <label>Usuario o mail:</label>
+                <input type="text" ng-model="username" id="username" />
+                <label>Nombre:</label>
+                <input type="text" ng-model="name" id="name" />
+                <label>Contraseña:</label>
+                <input type="password" ng-model="password" id="password" />
+                <label>Confirmar contraseña:</label>
+                <input type="password" ng-model="confirm" id="confirm" /><br />
+                <label>Indica si eres una empresa</label>
+                <input type="checkbox" ng-model="corp" id="corp" />
+                
+            </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button ng-click="signUp()" class="btn btn-primary">Save Registrarse</button>
+                <button ng-click="submitRegister(username,name,password,corp,confirm)" class="btn btn-primary">Sign up</button>
+                <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loginModal" data-dismiss="modal">Ya tengo una cuenta</a>
             </div>
         </div>
     </div>

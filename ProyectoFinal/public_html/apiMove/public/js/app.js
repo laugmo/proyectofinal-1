@@ -3,7 +3,10 @@
 angular.module('app', ['app.home', 'app.user', 'app.events', 'app.login', 'app.register'])
         .config(function myAppConfig($routeProvider) {
             'use strict';
-            $routeProvider.otherwise({redirectTo: '/home'});
+            $routeProvider.otherwise({
+                redirectTo: '/home',
+                controller: 'IndexController'
+            });
         })
         .controller('IndexController', function ($scope) {
 //                $scope.init = function () {
@@ -30,6 +33,36 @@ angular.module('app', ['app.home', 'app.user', 'app.events', 'app.login', 'app.r
                     location.href = "partials/_login.html";
                 });
             };
-        }); 
+            $scope.submitLogin = function (username, password) {
+                dpd.users.login({username: username, password: password}, function (session, error) {
+                    if (error) {
+                        alert(error.message);
+                    } else {
+                        location.href = "/index.html";
+                    }
+                });
+                return false;
+            };
+
+            $scope.submitRegister = function (username, name, password, corp, confirm) {
+                if (!username) {
+                    alert("Username is required");
+                } else if (!password) {
+                    alert("Password is required");
+                } else if (password !== confirm) {
+                    alert("Passwords do not match");
+                } else {
+                    dpd.users.post({username: username, password: password, name: name, corporation: corp}, function (user, error) {
+                        if (error) {
+                            alert(JSON.stringify(error));
+                        } else {
+                            location.href = "/index.html";
+                        }
+                    });
+                }
+                return false;
+            };
+
+        });
 
 
