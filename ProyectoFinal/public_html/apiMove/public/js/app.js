@@ -30,6 +30,6 @@ angular.module('app', ['app.home', 'app.user', 'app.events', 'app.login', 'app.r
                     location.href = "partials/_login.html";
                 });
             };
-        });
+        }); 
 
 
