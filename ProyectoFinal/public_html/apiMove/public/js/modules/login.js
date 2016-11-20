@@ -18,14 +18,6 @@ angular.module('app.login', [])
                     $scope.userLoaded = false;
                 });
 
-                $scope.showLogin = function (val) {
-                    $scope.loginVisible = val;
-                    if (val) {
-                        $scope.username = '';
-                        $scope.password = '';
-                    }
-                };
-
                 $scope.submitLogin = function (username, password) {
                     dpd.users.login({username: username, password: password}, function (session, error) {
                         if (error) {
