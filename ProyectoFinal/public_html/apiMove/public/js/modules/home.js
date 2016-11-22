@@ -35,8 +35,7 @@ angular.module('app.home', [])
 
             }])
         .controller('GetEventsController', ['$scope', function ($scope) {
-                $scope.loadMore = function () {
-
+                $scope.init = function () {
                     dpd.events.get(function (result, err) {
                         if (err) {
                             // Alert if there's an error
