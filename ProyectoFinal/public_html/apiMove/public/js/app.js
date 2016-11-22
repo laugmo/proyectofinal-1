@@ -1,6 +1,6 @@
 /* App Module */
 
-angular.module('app', ['app.home', 'app.user', 'app.events', 'app.login', 'app.register'])
+angular.module('app', ['app.home', 'app.user', 'app.events'])
         .config(function myAppConfig($routeProvider) {
             'use strict';
             $routeProvider.otherwise({
@@ -9,24 +9,29 @@ angular.module('app', ['app.home', 'app.user', 'app.events', 'app.login', 'app.r
             });
         })
         .controller('IndexController', function ($scope) {
-//                $scope.init = function () {
-//                    dpd.users.me(function (user) {
-//                        if (user) {
-//                            alert("Welcome, " + user.username + "!");
-//                            location.href = "partials/_user.html";
-//                        } else {
-//                            location.href = "partials/_home.html";
-//                        }
-//                    });
-//                };
-//                $scope.init();
             dpd.users.me(function (user) {
                 if (user) {
-                    $scope.userLoaded = true;
                     $scope.currentUser = user;
-                } else
+                    $scope.includePath = "partials/_events.html";
+                    console.log($scope.userLoaded + " " + $scope.currentUser + " " + $scope.includePath);
+
+                } else {
                     $scope.userLoaded = false;
+                    $scope.includePath = "partials/_home.html";
+                    console.log($scope.userLoaded + " " + $scope.currentUser + " " + $scope.includePath);
+
+                }
             });
+
+            $scope.getPartial = function () {
+                dpd.users.me(function (user) {
+                    if (user) {
+                        return "partials/_events.html";
+                    } else {
+                        return "partials/_home.html";
+                    }
+                });
+            };
 
             $scope.logout = function () {
                 dpd.users.logout(function (res, err) {
