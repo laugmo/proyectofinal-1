@@ -9,33 +9,29 @@ angular.module('app', ['app.home', 'app.user', 'app.events'])
             });
         })
         .controller('IndexController', function ($scope) {
+            $scope.currentUser;
             dpd.users.me(function (user) {
                 if (user) {
+                    $scope.userLoaded = true;
                     $scope.currentUser = user;
                     $scope.includePath = "partials/_events.html";
-                    console.log($scope.userLoaded + " " + $scope.currentUser + " " + $scope.includePath);
+                    $scope.$apply();
 
                 } else {
                     $scope.userLoaded = false;
                     $scope.includePath = "partials/_home.html";
-                    console.log($scope.userLoaded + " " + $scope.currentUser + " " + $scope.includePath);
+                    $scope.$apply();
 
                 }
+                console.log($scope.userLoaded + " " + $scope.currentUser + " " + $scope.includePath);
             });
-
-            $scope.getPartial = function () {
-                dpd.users.me(function (user) {
-                    if (user) {
-                        return "partials/_events.html";
-                    } else {
-                        return "partials/_home.html";
-                    }
-                });
-            };
 
             $scope.logout = function () {
                 dpd.users.logout(function (res, err) {
-                    location.href = "partials/_login.html";
+                    $scope.userLoaded = false;
+                    $scope.currentUser = null;
+                    $scope.includePath = "partials/_home.html";
+                    $scope.$apply();
                 });
             };
             $scope.submitLogin = function (username, password) {
