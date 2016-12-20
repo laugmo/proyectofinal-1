@@ -1,0 +1,16 @@
+body p{
+    font-family: 'Open Sans', sans-serif;
+}
+.lobster{
+    /*font-family: 'Bree Serif', serif;*/
+    font-family: 'Lobster', cursive;
+}
+.logo-size{
+    font-size: 35px;
+}
+.bg-warning{
+    margin-top: 20px;
+    padding: 15px;
+    color:dimgray;
+}
+
