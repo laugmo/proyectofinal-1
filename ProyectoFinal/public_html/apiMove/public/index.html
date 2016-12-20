@@ -22,22 +22,8 @@
                 </div>     
             </div>
 
-            <div ng-include="'partials/_home.html'"></div>
-            <h1>Welcome to Deployd!</h1>
-            <ul>
-                <li>
-                    <p>Login as a user <a href="partials/_user.html">here</a></p>
-                </li>
-                <li>
-                    <p>Check upcoming events <a href="partials/_home.html">here</a></p>
-                </li>
-                <li>
-                    <p>Create a new event<a href="partials/_events.html"> here</a>.</p>
-                </li>
-                <li>
-                    <p>Check users<a href="partials/_user.html"> here</a>.</p>
-                </li>
-            </ul>
+            <div ng-include="includePath"></div>
+            <h1>HOME</h1>
         </div>
 
         <script type="text/javascript" src="/js/lib/jquery.js"></script>
@@ -76,7 +62,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
 
         <!-- Login Modal -->
         <div class="modal fade" id="registModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true" style="display: none">

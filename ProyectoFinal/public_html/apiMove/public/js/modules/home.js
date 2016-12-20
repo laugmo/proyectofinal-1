@@ -9,6 +9,15 @@ angular.module('app.home', [])
                 });
             }])
         .controller('SearchEventController', ['$scope', function ($scope) {
+                $scope.init = function () {
+                    dpd.events.get(function (result, err) {
+                        if (err) {
+                            // Alert if there's an error
+                            return alert(err.message || "Error al buscar eventos");
+                        }
+                        $scope.eventos = result;
+                    });
+                };
                 $scope.searchEvent = function () {
                     if ($scope.searchTerm) {
                         dpd.events.get({$or:

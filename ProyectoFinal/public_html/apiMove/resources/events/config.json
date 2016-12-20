@@ -67,8 +67,8 @@
 		},
 		"sports": {
 			"name": "sports",
-			"type": "object",
-			"typeLabel": "object",
+			"type": "array",
+			"typeLabel": "array",
 			"required": true,
 			"id": "sports",
 			"order": 8
