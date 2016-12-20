@@ -13,4 +13,13 @@ body p{
     padding: 15px;
     color:dimgray;
 }
+.user-icon{
+    margin-top: 4px;
+    height: 40px;
+    width: 40px;
+    border: 1px solid #c6c6c6;
+    border-radius: 50px;
+    background: url(../img/usr/anonim-user-02.jpg) top left;
+    background-size: 40px 40px;
+}
 
