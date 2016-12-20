@@ -28,6 +28,7 @@ angular.module('app.home', [])
                                         return alert(err.message || "Error al buscar eventos");
                                     }
                                     $scope.eventos = result;
+                                    $scope.$apply();
                                 });
 
                     }

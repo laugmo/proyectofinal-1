@@ -1,7 +1,5 @@
 'use strict';
 
-/* User Module */
-
 angular.module('app.user', [])
         .config(['$routeProvider', function config($routeProvider) {
                 $routeProvider.when('/user', {
@@ -12,20 +10,18 @@ angular.module('app.user', [])
         .controller('GenerateSuggestion', ['$scope', function ($scope) {
                 dpd.users.me(function (user) {
                     if (user) {
-//                if (me) {
-//                    user.sports = me.sports;
-//                    user.neighbourhood = me.neighbourhood;
                         dpd.events.get({$or: [
                                 {discipline: {$in: [user.sports]}},
                                 {area: {$regex: '^.*' + user.neighbourhood + '.*$',
                                         $options: 'i'}}
                             ]}, function (result) {
-                            if (err) {
-                                // Alert if there's an error
+                           if (err) {
+//                                // Alert if there's an error
                                 return alert(err.message || "Error al buscar eventos");
-                            }
+                          }
                             $scope.sugerencias = result;
                             $scope.$apply();
+                            console.log($scope.sugerencias);
                         });
                     }
                 }

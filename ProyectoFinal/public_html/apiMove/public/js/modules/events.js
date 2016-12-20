@@ -10,7 +10,16 @@ angular.module('app.events', [])
                 });
             }])
         .controller('EventsController', ['$scope', function ($scope) {
-                 
+                $scope.loadSports = function(){
+                    dpd.sports.get(function (result, err) {
+                        if (err) {
+                            // Alert if there's an error
+                            return alert(err.message || "Error al buscar deportes");
+                        }
+                        $scope.sports = result;
+                        $scope.$apply();
+                   });
+                };
                 $scope.init = function () {
                     dpd.events.get(function (result, err) {
                         if (err) {

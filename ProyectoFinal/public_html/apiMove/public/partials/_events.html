@@ -4,8 +4,15 @@
             <h1>Crear Evento</h1>
             <label class="alert" ng-hide="eventos.length">No tienes eventos! Crea uno ahora:</label>
             <form class="form-inline">
-                Nombre del Evento:
+                <label class="label" for="event-title" >Nombre del Evento:</label>
                 <input id="event-title" type="text" ng-model="titleEvent" /></br>
+                <label class="label"  >Deporte:</label>
+                <input list="sport" type="text" ng-model="sportEvent" /></br>
+                <select id="sport" ng="loadSports()" ng-repeat="sport in sports">
+ 
+                    <option value="{{sport._id}}">{{sport.name}}</option>
+
+                </select> 
                 Fecha:
                 <input id="event-date" type="date" ng-model="dateEvent" /></br>
                 Hora:
