@@ -1,16 +1,35 @@
 'use strict';
 
-/* User Module */
-
 angular.module('app.user', [])
         .config(['$routeProvider', function config($routeProvider) {
-            $routeProvider.when('/user', {
-                controller: 'UserController',
-                templateUrl: 'partials/_user.html'
-            });
-        }])
+                $routeProvider.when('/user', {
+                    controller: 'UserController',
+                    templateUrl: 'partials/_user.html'
+                });
+            }])
+        .controller('GenerateSuggestion', ['$scope', function ($scope) {
+                dpd.users.me(function (user) {
+                    if (user) {
+                        dpd.events.get({$or: [
+                                {discipline: {$in: [user.sports]}},
+                                {area: {$regex: '^.*' + user.neighbourhood + '.*$',
+                                        $options: 'i'}}
+                            ]}, function (result) {
+                           if (err) {
+//                                // Alert if there's an error
+                                return alert(err.message || "Error al buscar eventos");
+                          }
+                            $scope.sugerencias = result;
+                            $scope.$apply();
+                            console.log($scope.sugerencias);
+                        });
+                    }
+                }
+                );
+            }]);
+        //]);
 
-      /*  .controller('GenerateSuggestion', ['$scope', function ($scope) {
+      /*.controller('GenerateSuggestion', ['$scope', function ($scope) {
             $scope.searchEvent = function () {
         if ($scope.searchTerm) {
         dpd.users.me(function(user) {
@@ -38,7 +57,7 @@ angular.module('app.user', [])
 //              }}]
 //                        },
 //                                function (result) {
-//                                   /* if (err) {
+//                                   if (err) {
 //                                        // Alert if there's an error
 //                                        return alert(err.message || "Error al buscar eventos");
 //                                    }*/

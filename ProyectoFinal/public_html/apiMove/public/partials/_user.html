@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <div ng-app="app.user">
-        <h1>USER</h1>
-     <div class="container" ng-controller="LoginController">
+     <!--<div class="container" ng-controller="LoginController">
             <h1>Login</h1>
             <form>
                 <label for="username" >Usuario:</label>
@@ -11,7 +10,26 @@
                 <button ng-click="userLogin()"class="btn btn-primary">Login</button>
                 <a href="/register.html" class="btn btn-link">sign up</a>
         </form>
-        <!-- <div class="container" ng-controller="UserController as userC">
+    </div>-->
+    <div class="load-more" ng-controller="GenerateSuggestion" ng-cloak >
+        <div class="container" ng-cloak>
+            <div>
+                <h4>Eventos sugeridos</h4>
+                <label class="alert" ng-hide="sugerencias.length">No se encontraron eventos</label>
+                <ul id="events" class="unstyled">
+                    <li ng-repeat="evento in sugerencias">
+                        <label class="clearfix"><b>{{evento.name}}</b></label>
+                        <label>{{evento.location.address}}</label>
+                        <label>{{evento.location.neighbourhood}}</label>
+                        <label>{{evento.date.date}}</label>
+                        <label>{{evento.date.time}}</label>
+                        </br>
+                    </li>   
+                </ul>
+            </div>
+        </div>
+    </div>
+       <!-- <div class="container" ng-controller="UserController as userC">
             
             
             <h1>Usuarios</h1>
@@ -30,7 +48,7 @@
             <p>
                 <a href id="remove-completed-btn">Eliminar completados</a>
             </p>-->
-        </div>
+      
         
         <script type="text/javascript" src="../js/lib/jquery.js"></script>
         <script type="text/javascript" src="../dpd.js"></script>

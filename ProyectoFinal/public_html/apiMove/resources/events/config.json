@@ -67,9 +67,9 @@
 		},
 		"sports": {
 			"name": "sports",
-			"type": "array",
-			"typeLabel": "array",
-			"required": true,
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
 			"id": "sports",
 			"order": 8
 		},
@@ -88,6 +88,30 @@
 			"required": false,
 			"id": "discipline",
 			"order": 10
+		},
+		"latitude": {
+			"name": "latitude",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "latitude",
+			"order": 11
+		},
+		"longitude": {
+			"name": "longitude",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "longitude",
+			"order": 12
+		},
+		"createdTime": {
+			"name": "createdTime",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "createdTime",
+			"order": 13
 		}
 	}
 }
