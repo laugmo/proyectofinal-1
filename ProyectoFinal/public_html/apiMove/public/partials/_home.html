@@ -1,51 +1,28 @@
-
 <div ng-app="app.home">
-
-        <div class="container" ng-controller="SearchEventController" ng-cloak>
-            <h1>Buscar Eventos</h1>
-            <section class="searchField">
-                <form >
-                    <input type="text" id="nombreBarrioDeporte" ng-model="searchTerm" placeholder="Ingrese el nombre del evento,barrio o deporte" />
-                    <button ng-click="searchEvent()" >Buscar Eventos</button>
-                </form>
-
-                <div id="empty" ng-hide="eventos.length || !loaded">No se encontraron eventos</div>
-
-                <ul id="events" class="unstyled">
-                    <li ng-repeat="evento in eventos">
-                        <label class="alert-success">{{evento.name}}</label></br>
-                        <label class="alert-success">{{evento.location.address}}</label></br>
-                        <label class="alert-success">{{evento.location.neighbourhood}}</label></br>
-                        <label class="alert-success">{{evento.date.date}}</label></br>
-                        <label class="alert-success">{{evento.date.time}}</label></br>
-                    </li>   
-                </ul>
-
-
-            </section>
-
-        </div>   
-        <div class="load-more" ng-controller="GetEventsController" ng-cloak >
-            <a ng-click="loadMore()">Ver más eventos...</a>
-            <div id="empty" ng-hide="eventos.length || !loaded">No hay más eventos</div>
-
-            <ul id="masEvents" class="unstyled" >
+    <div class="container" ng-controller="SearchEventController" ng-cloak>
+        <h4>Busca un evento:</h4>
+        <section class="searchField">
+            <form >
+                <div class="form-group">
+                    <input type="text" class="form-control"  id="nombreBarrioDeporte" ng-model="searchTerm" placeholder="Ingrese el nombre del evento, barrio o deporte relacionado" >
+                </div>
+                <button ng-click="searchEvent()" class="btn btn-default">Buscar Eventos</button>
+            </form>
+        </section>
+    </div>   
+    <div class="load-more" ng-controller="GetEventsController" ng-cloak >
+        <div class="container" ng-cloak>
+            <p class="bg-warning" ng-hide="eventos.length">No se encontraron eventos</p>
+            <ul id="events" class="unstyled">
                 <li ng-repeat="evento in eventos">
-                    <hr>
-                    <label class="alert-info">{{evento.name}}</label></br>
-                    <label class="alert-info">{{evento.location.address}}</label></br>
-                    <label class="alert-info">{{evento.location.neighbourhood}}</label></br>
-                    <label class="alert-info">{{evento.date.date}}</label></br>
-                    <label class="alert-info">{{evento.date.time}}</label></br>
+                    <label class="clearfix"><b>{{evento.name}}</b></label>
+                    <label>{{evento.location.address}}</label>
+                    <label>{{evento.location.neighbourhood}}</label>
+                    <label>{{evento.date.date}}</label>
+                    <label>{{evento.date.time}}</label>
+                    </br>
                 </li>   
             </ul>
         </div>
-       <!-- <script type="text/javascript" src="../js/lib/jquery.js"></script>
-        <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
-        <script type="text/javascript" src="../dpd.js"></script>
-
-        <!-- ANGULAR 
-        <script type="text/javascript" src="../js/lib/angular.js"></script>
-        
-    </body>-->
+    </div>
 </div>

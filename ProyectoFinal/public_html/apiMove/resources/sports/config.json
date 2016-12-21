@@ -24,6 +24,14 @@
 			"required": false,
 			"id": "team",
 			"order": 2
+		},
+		"keyWords": {
+			"name": "keyWords",
+			"type": "array",
+			"typeLabel": "array",
+			"required": false,
+			"id": "keyWords",
+			"order": 3
 		}
 	}
 }

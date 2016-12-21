@@ -1,46 +1,45 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <div ng-app="app.events">
-   <!-- <head>
-        <title>TODO supply a title</title>
-        
-
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head> 
     <div ng-controller="EventsController" ng-init="init()">
         <div class="container" ng-cloak>
-            <h1>Crear Evento</h1>
-            <label class="alert" ng-hide="eventos.length">No tienes eventos! Crea uno ahora:</label>
-            <form class="form-inline">
-                Nombre del Evento:
-                <input id="event-title" type="text" ng-model="titleEvent" /></br>
-                Fecha:
-                <input id="event-date" type="date" ng-model="dateEvent" /></br>
-                Hora:
-                <input id="event-time" type="time" ng-model="timeEvent" /></br>
-                Dirección:
-                <input id="event-address" type="text" ng-model="addressEvent" /></br>
-                Barrio:
-                <input id="event-neighb" type="text" ng-model="neighbEvent" /></br>
-                Ciudad:
-                <input id="event-city" type="text" ng-model="cityEvent" /></br>
-                País:
-                <input id="event-country" type="text" ng-model="countryEvent" /></br>
-                Descripción:
-                <input id="event-descr" type="text" ng-model="descrEvent" /></br>
-                Agregar logo:
-                <input id="event-logo" type="file" ng-model="logoEvent" /></br>
-                Evento publico:
-                <input id="event-pub" type="checkbox" ng-model="pubEvent" /></br></br>
-                <button id="add-btn" class="btn" ng-click="addEvent(titleEvent, dateEvent, timeEvent, addressEvent, neighbEvent, cityEvent, countryEvent, descrEvent, logoEvent, pubEvent)">Crear Evento</button>
+            <h4 ng-hide="eventos.length">No tienes eventos! Crea uno ahora:</h4>
+            <form class="col-lg-8 col-md-8">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="titleEvent" id="event-title" placeholder="Nombre del Evento">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" ng-model="dateEvent" id="event-date" placeholder="Fecha">
+                </div>
+                <div class="form-group">
+                    <input type="time" class="form-control" ng-model="timeEvent" id="event-time" placeholder="Hora">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="addressEvent" id="event-address" placeholder="Dirección">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="neighbEvent" id="event-neighb" placeholder="Zona o Barrio">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="cityEvent" id="event-city" placeholder="Ciudad">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="countryEvent" id="event-country" placeholder="País">
+                </div>
+                <div class="form-group">
+                    <textarea type="text" class="form-control" ng-model="descrEvent" id="event-descr" placeholder="Comentarios"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="file" class="form-control" ng-model="logoEvent" id="event-logo" placeholder="Sube una imágen">
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="pubEvent" id="event-pub"> Evento público
+                    </label>
+                </div>
+                <button id="add-btn" class="btn btn-default" ng-click="addEvent(titleEvent, dateEvent, timeEvent, addressEvent, neighbEvent, cityEvent, countryEvent, descrEvent, logoEvent, pubEvent)">Crear Evento</button>
             </form>
+        </div>
+        <div class="container">
             <div>
-                <h2>Eventos:</h2>
                 <ul id="events" class="unstyled">
                     <li ng-repeat="evento in eventos">
                         <label class="clearfix"><b>{{evento.name}}</b></label>
@@ -53,14 +52,5 @@ and open the template in the editor.
                 </ul>
             </div>
         </div>
-
-        <!-- libs -->
-        <script type="text/javascript" src="../js/lib/jquery.js"></script>
-        <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
-        <script type="text/javascript" src="../dpd.js"></script>
-
-        <!-- ANGULAR -->
-        <script type="text/javascript" src="../js/lib/angular.js"></script>
-        <script type="text/javascript" src="../js/modules/events.js"></script>
     </div>
 </div>
