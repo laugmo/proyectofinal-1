@@ -16,6 +16,8 @@ angular.module('app.home', [])
                             return alert(err.message || "Error al buscar eventos");
                         }
                         $scope.eventos = result;
+                        $scope.searched = false;
+                        $scope.$apply();
                     });
                 };
                 $scope.searchEvent = function () {
@@ -36,8 +38,13 @@ angular.module('app.home', [])
                                         // Alert if there's an error
                                         return alert(err.message || "Error al buscar eventos");
                                     }
-                                    $scope.eventos = result;
+                                    $scope.eventosEncontrados = result;
+                                    if(result.length == 0 ) 
+                                        $scope.searched = true;
+                                    else
+                                        $scope.searched = false;
                                     $scope.$apply();
+                                    
                                 });
 
                     }
@@ -45,7 +52,7 @@ angular.module('app.home', [])
 
             }])
         .controller('GetEventsController', ['$scope', function ($scope) {
-                $scope.init = function () {
+                $scope.getEvents = function () {
                     dpd.events.get(function (result, err) {
                         if (err) {
                             // Alert if there's an error
