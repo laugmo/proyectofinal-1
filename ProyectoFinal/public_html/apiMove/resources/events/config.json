@@ -67,9 +67,9 @@
 		},
 		"sports": {
 			"name": "sports",
-			"type": "object",
-			"typeLabel": "object",
-			"required": true,
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
 			"id": "sports",
 			"order": 8
 		},
@@ -104,6 +104,14 @@
 			"required": false,
 			"id": "longitude",
 			"order": 12
+		},
+		"createdTime": {
+			"name": "createdTime",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "createdTime",
+			"order": 13
 		}
 	}
 }
