@@ -1,6 +1,6 @@
 /* App Module */
 
-angular.module('app', ['app.home', 'app.user', 'app.events'])
+angular.module('app', ['app.home', 'app.user', 'app.events', 'app.profile'])
         .config(function myAppConfig($routeProvider) {
             'use strict';
             $routeProvider.otherwise({
@@ -14,7 +14,7 @@ angular.module('app', ['app.home', 'app.user', 'app.events'])
                 if (user) {
                     $scope.userLoaded = true;
                     $scope.currentUser = user;
-                    $scope.includePath = "partials/_events.html";
+                    $scope.includePath = "partials/_user.html";
                     $scope.$apply();
 
                 } else {
@@ -23,8 +23,15 @@ angular.module('app', ['app.home', 'app.user', 'app.events'])
                     $scope.$apply();
 
                 }
-                console.log($scope.userLoaded + " " + $scope.currentUser + " " + $scope.includePath);
             });
+            
+            $scope.myProfile = function (user) {
+                
+                if (user) {
+                    $scope.includePath = "partials/_profile.html";
+                }
+
+                };
 
             $scope.logout = function () {
                 dpd.users.logout(function (res, err) {

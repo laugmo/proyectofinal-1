@@ -10,23 +10,24 @@ angular.module('app.user', [])
         .controller('GenerateSuggestion', ['$scope', function ($scope) {
                 dpd.users.me(function (user) {
                     if (user) {
-                        dpd.events.get({$or: [
+                        dpd.events.get(
+                                {$or: [
                                 {discipline: {$in: [user.sports]}},
                                 {area: {$regex: '^.*' + user.neighbourhood + '.*$',
                                         $options: 'i'}}
-                            ]}, function (result) {
+                            ]}, function (result, err) {
                            if (err) {
-//                                // Alert if there's an error
                                 return alert(err.message || "Error al buscar eventos");
                           }
                             $scope.sugerencias = result;
                             $scope.$apply();
-                            console.log($scope.sugerencias);
                         });
                     }
                 }
                 );
+
             }]);
+
         //]);
 
       /*.controller('GenerateSuggestion', ['$scope', function ($scope) {

@@ -1,0 +1,81 @@
+<div ng-app="app.profile">
+    <div class="container" ng-controller="UpdateProfile" ng-init="loadProfileFields()">
+        <h4 >Mi Perfil</h4>
+
+        <form>
+            <div class="form-group">
+                <label for="username">Email</label>
+                <input type="email" class="form-control" ng-model="currentUser.username" id="username" readonly>
+            </div>
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" ng-model="currentUser.name" id="name" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+                <label  for="birthDate">Fecha de Nacimiento</label>
+                <input type="date" class="form-control" ng-model="currentUser.birthDate" id="birthDate" placeholder="Fecha de Nacimiento">
+            </div>
+            <div class="form-group">
+                <label for="address">Dirección</label>
+                <input type="text" class="form-control" ng-model="currentUser.address" id="address" placeholder="Dirección">
+            </div>
+            <div class="form-group">
+                <label for="neighbourhood">Barrio</label>
+                <input type="text" class="form-control" ng-model="currentUser.neighbourhood" id="neighbourhood" placeholder="Barrio">
+            </div>
+            <div class="form-group">
+                <label>Ciudad
+                <select id="city" 
+                        ng-options="city as city.label for city in cities" 
+                        ng-model="currentUser.city" >
+                    <option ng-if="currentUser.city !== ''" ng-selected="{{city.value === currentUser.city}}" value="currentUser.city">{{currentUser.city}}</option>
+                    <option value="">***Seleccione una ciudad***</option>
+                </select>
+                </label>
+
+            </div>
+            <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <input type="text" class="form-control" ng-model="currentUser.phone" id="phone" placeholder="Teléfono">
+            </div>
+           <!-- <div class="form-group">
+                <label>
+                    Deportes preferidos
+                    <input type="text" class="form-control" ng-model="currentUser.sports" id="sports" placeholder="Seleccione sus deportes">
+                </label>
+            </div>-->
+           <div class="form-group">
+               <label >
+                   Deportes preferidos
+               </label>
+               <!--  <input type="checkbox"
+                          value="{{sport.name}}" ng-model="currentUser.sports" id="sports" >
+                            name="selectedSports[]"
+                          
+                          ng-checked="selection.indexOf(sport.name) > -1"
+                          ng-click="toggleSelection(sportName)"
+                          {{sport.name}}-->
+
+               <ul class="form-control"  id="sports" ng-init='getSports(currentUser)'>
+                   <li ng-repeat="sport in sports">
+                       <label class="clearfix"><b>{{sport.name}}</b></label>                    
+                       </br>
+                   </li>   
+               </ul>
+
+           </div>
+            <div class="form-group" ng-hide='true'>
+                <label for="companyName">Empresa</label>
+                <input type="text" class="form-control" ng-model="companyName" id="companyName" placeholder="Empresa">
+            </div>
+            <div class="checkbox">
+                <label for="username">Eres una empresa?</label>
+                <label>
+                    <input type="checkbox" ng-model="corp" id="corp"> Si
+                </label>
+            </div>
+            <button type="submit" ng-click="updateUser(currentUser.name, currentUser.birthDate, currentUser.address, 
+                        currentUser.neighbourhood, currentUser.city, currentUser.phone, currentUser.sports )" class="btn btn-default">Actualizar Perfil</button>
+        </form>
+    </div>
+</div>

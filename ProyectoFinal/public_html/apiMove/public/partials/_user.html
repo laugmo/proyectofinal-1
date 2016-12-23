@@ -1,59 +1,21 @@
 <!DOCTYPE html>
 <div ng-app="app.user">
-     <!--<div class="container" ng-controller="LoginController">
-            <h1>Login</h1>
-            <form>
-                <label for="username" >Usuario:</label>
-                <input type="text" id="username" ng-model="userName" placeholder="Ingrese su usuario"/>
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" ng-model="userPwd" placeholder="Ingrese su contraseña"/><br />
-                <button ng-click="userLogin()"class="btn btn-primary">Login</button>
-                <a href="/register.html" class="btn btn-link">sign up</a>
-        </form>
-    </div>-->
-    <div class="load-more" ng-controller="GenerateSuggestion" ng-cloak >
-        <div class="container" ng-cloak>
-            <div>
-                <h4>Eventos sugeridos</h4>
-                <label class="alert" ng-hide="sugerencias.length">No se encontraron eventos</label>
-                <ul id="events" class="unstyled">
-                    <li ng-repeat="evento in sugerencias">
-                        <label class="clearfix"><b>{{evento.name}}</b></label>
-                        <label>{{evento.location.address}}</label>
-                        <label>{{evento.location.neighbourhood}}</label>
-                        <label>{{evento.date.date}}</label>
-                        <label>{{evento.date.time}}</label>
-                        </br>
-                    </li>   
-                </ul>
-            </div>
+
+    <div class="container" ng-controller="GenerateSuggestion" ng-cloak >
+        <div>
+            <h4>Eventos sugeridos</h4>
+            <label class="alert" ng-hide="sugerencias.length">No se encontraron eventos</label>
+            <ul id="events" class="unstyled">
+                <li ng-repeat="evento in sugerencias">
+                    <label class="clearfix"><b>{{evento.name}}</b></label>
+                    <label>{{evento.location.address}}</label>
+                    <label>{{evento.location.neighbourhood}}</label>
+                    <label>{{evento.date.date}}</label>
+                    <label>{{evento.date.time}}</label>
+                    </br>
+                </li>   
+            </ul>
         </div>
     </div>
-       <!-- <div class="container" ng-controller="UserController as userC">
-            
-            
-            <h1>Usuarios</h1>
-            <p ng-show="!userC.usuarios.length">No tienes usuarios! Agrega uno!:</p>
-            <ul ng-show="userC.usuarios.length">
-                <li ng-repeat="usuario in userC.usuarios">
-                    <p>{{usuario.name}}</p>
-                    <p>{{usuario.user}}</p>
-                    <p>{{usuario.pass}}</p>
-                </li>
-            </ul>
-            <form class="form-inline">
-                <input id="todo-title" type="text" />
-                <button id="add-btn" class="btn btn-success">Agregar</button>
-            </form>
-            <p>
-                <a href id="remove-completed-btn">Eliminar completados</a>
-            </p>-->
-      
-        
-        <script type="text/javascript" src="../js/lib/jquery.js"></script>
-        <script type="text/javascript" src="../dpd.js"></script>
-        
-        <!-- ANGULAR-->
-        <script type="text/javascript" src="../js/lib/angular.js"></script>
-        <script type="text/javascript" src="../js/modules/user.js"></script>
+
 </div>
