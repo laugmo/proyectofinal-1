@@ -25,7 +25,7 @@
             </div>
             <div class="form-group">
                 <label>Ciudad
-                <select id="city" 
+                <select id="city" class="form-control"
                         ng-options="city as city.label for city in cities" 
                         ng-model="currentUser.city" >
                     <option ng-if="currentUser.city !== ''" ng-selected="{{city.value === currentUser.city}}" value="currentUser.city">{{currentUser.city}}</option>
@@ -48,13 +48,10 @@
                <label >
                    Deportes preferidos
                </label>
-               <!--  <input type="checkbox"
-                          value="{{sport.name}}" ng-model="currentUser.sports" id="sports" >
-                            name="selectedSports[]"
-                          
-                          ng-checked="selection.indexOf(sport.name) > -1"
-                          ng-click="toggleSelection(sportName)"
-                          {{sport.name}}-->
+               <!--      <span ng-repeat="sport in sports">
+      <label class="checkbox" for="{{sport.id}}">
+        <input type="checkbox" ng-model="selection.ids[sport.id]" name="sports" id="{{sport.id}}" />
+        {{sport.name}} urlPhoto -->
 
                <ul class="form-control"  id="sports" ng-init='getSports(currentUser)'>
                    <li ng-repeat="sport in sports">
@@ -62,8 +59,12 @@
                        </br>
                    </li>   
                </ul>
-
+               <input type="text" class="form-control" ng-model="currentUser.sports" id="selectedSports" placeholder="Deportes Preferidos">
            </div>
+             <div class="form-group">
+                <label for="photo">Imangen de perfil</label>
+                <input type="search" class="form-control" ng-model="currentUser.urlPhoto" id="photo" placeholder="Seleccione una imagen">
+            </div>
             <div class="form-group" ng-hide='true'>
                 <label for="companyName">Empresa</label>
                 <input type="text" class="form-control" ng-model="companyName" id="companyName" placeholder="Empresa">
