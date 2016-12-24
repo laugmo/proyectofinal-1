@@ -17,5 +17,18 @@
             </ul>
         </div>
     </div>
+    <div class="container" ng-controller="SuggestUsers" ng-cloak >
+        <div ng-show="usuariosSugeridos.length" >
+            <h4>Usuarios sugeridos</h4>
+                <ul id="usuarios" class="unstyled">
+                <li ng-repeat="usuario in usuariosSugeridos">
+                    <label class="clearfix"><b>{{usuario.name}}</b></label>
+                    <label>{{usuario.neighbourhood}}</label>
+                    <label>{{usuario.sports}}</label>
+                    </br>
+                </li>   
+            </ul>
+        </div>
+    </div>
 
 </div>

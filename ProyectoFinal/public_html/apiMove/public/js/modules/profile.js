@@ -60,12 +60,6 @@ angular.module('app.profile', [])
                     dpd.users.me(function (user) {
                         if (user) {
                             $scope.currentUser = user;
-//                            if(user.city !== ""){
-//                                
-//                                $scope.currentUser.city =$scope.cities[user.city];
-//                                $scope.apply();                            
-//                            }
-//                            $scope.getSports(user);
                             $scope.apply();
                         }
 
@@ -78,7 +72,6 @@ angular.module('app.profile', [])
                             // Alert if there's an error
                             return alert(err.message || "Error al buscar deportes");
                         }
-                        //console.log("getSports");
 
                         $scope.sports = result;
                         $scope.apply();
@@ -86,7 +79,6 @@ angular.module('app.profile', [])
 
 //                    // selected sports
                     $scope.selection = user.sports;
-                    console.log(user.sports);
 //                    $scope.apply();
 
                 };
@@ -96,7 +88,8 @@ angular.module('app.profile', [])
                             $scope.currentUser = user;
                             dpd.users.post(user.id, {
                                 name: name,
-                                birthDate: birthDate, //{"date": birthDate},
+                                birthDate: birthDate, 
+                              //  age: $scope.calculateAge(birthDate), 
                                 address: address,
                                 neighbourhood: neighbourhood,
                                 city: city.label,
