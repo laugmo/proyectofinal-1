@@ -22,10 +22,11 @@
             <h4>Usuarios sugeridos</h4>
                 <ul id="usuarios" class="unstyled">
                 <li ng-repeat="usuario in usuariosSugeridos">
-                    <label class="clearfix"><b>{{usuario.name}}</b></label>
-                    <label>{{usuario.neighbourhood}}</label>
-                    <label>{{usuario.sports}}</label>
-                    </br>
+                    <label class="clearfix"><b>{{usuario.name}}</b></label></br>
+                    <label>Barrio: {{usuario.neighbourhood}}</label></br>
+                    <ul ng-repeat="sport in usuario.sports">
+                        <li>{{sport}}</li>
+                    </ul>
                 </li>   
             </ul>
         </div>
