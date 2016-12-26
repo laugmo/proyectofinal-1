@@ -33,7 +33,6 @@ angular.module('app.user', [])
                         if (user.sports.length > 0) {
                             console.log(user.sports[0]);
                             $scope.currentUser = user;
-                            //console.log(currentUser.neighbourhood);
                             var currentNeighbourhood = user.neighbourhood;
                             var currentUsername = user.username;
                             var currentSports = user.sports;
