@@ -22,4 +22,28 @@ body p{
     background: url(../img/usr/anonim-user-02.jpg) top left;
     background-size: 40px 40px;
 }
+.event-box {
+    background-color:#ffffff;
+    padding:5px;
+    margin:10px 20px 10px 0;
+    -webkit-box-shadow: 0 8px 6px -6px  #999;
+    -moz-box-shadow: 0 8px 6px -6px  #999;
+    box-shadow: 0 8px 6px -6px #999;
+    border: solid #c6c6c6 1px;
+    border-radius: 5px;
+}
 
+.event-title {
+    font-weight:bold;
+    padding: 5px 0;
+    font-size: 16px;
+}
+.event-info {
+}
+.event-footer {
+    border-top:1px solid #dadada;
+    padding-top:5px;
+}
+.event-footer i{
+    margin-top: 7px;
+}

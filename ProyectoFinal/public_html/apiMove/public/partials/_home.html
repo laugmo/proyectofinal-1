@@ -1,5 +1,5 @@
 <div ng-app="app.home">
-    <div class="container" ng-controller="SearchEventController" ng-cloak>
+    <div class="container" ng-controller="SearchEventController" ng-init="init()" >
         <h4>Busca un evento:</h4>
         <section class="searchField">
             <form >
@@ -7,36 +7,19 @@
                     <input type="text" class="form-control"  id="nombreBarrioDeporte" ng-model="searchTerm" placeholder="Ingrese el nombre del evento, barrio o deporte relacionado" >
                 </div>
                 <button ng-click="searchEvent()" class="btn btn-default">Buscar Eventos</button>
-
             </form>
-           <div class="container" ng-cloak>
-                <p class="bg-warning" ng-show="searched">No se encontraron eventos</p>
-                <ul id="events" class="unstyled">
-                    <li ng-repeat="encontrado in eventosEncontrados">
-                        <label class="clearfix"><b>{{encontrado.name}}</b></label>
-                        <label>{{encontrado.location.address}}</label>
-                        <label>{{encontrado.location.neighbourhood}}</label>
-                        <label>{{encontrado.date.date}}</label>
-                        <label>{{encontrado.date.time}}</label>
-                        </br>
-                    </li>   
-                </ul>
-            </div>
         </section>
-    </div>   
-    <div class="load-more" ng-controller="SearchEventController" ng-init="init()" ng-cloak >
-        <div class="container" ng-cloak>
-            <p class="bg-warning" ng-hide="eventos.length">No se encontraron eventos</p>
-            <ul id="events" class="unstyled">
-                <li ng-repeat="evento in eventos">
-                    <label class="clearfix"><b>{{evento.name}}</b></label>
-                    <label>{{evento.location.address}}</label>
-                    <label>{{evento.location.neighbourhood}}</label>
-                    <label>{{evento.date.date}}</label>
-                    <label>{{evento.date.time}}</label>
-                    </br>
-                </li>   
-            </ul>
+        <div>
+            <p class="bg-warning" ng-show="searched">No se encontraron eventos</p>
+            <div class="col-md-2 column event-box" ng-repeat="evento in eventos">
+                <img src="http://placehold.it/460x250/A8DC63/ffffff&text=EVENTO" class="img-responsive">
+                <div class="event-title">{{evento.name}}</div>
+                <div class="event-info">{{evento.location.address}}</div>
+                <div class="event-info">{{evento.location.neighbourhood}}</div>
+                <div class="event-info">{{evento.date.date}}</div>
+                <div class="event-info">{{evento.date.time}}</div>
+                <div class="event-footer"><div class="pull-right"><a href="#" class="btn btn-default btn-sm" role="button">Participar</a></div><div class="pricetext"><i class="fa fa-male"></i> {{evento.participants.length}}</div></div>
+            </div>
         </div>
-    </div>
+    </div>   
 </div>
