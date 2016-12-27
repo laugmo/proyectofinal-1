@@ -1,8 +1,38 @@
 {
-    "name": "ProyectoFinal",
-    "version": "1.0.0",
-    "keywords": ["util", "functional", "server", "client", "browser"],
-    "author": "letic",
-    "contributors": [],
-    "dependencies": {}
+  "name": "ProyectoFinal",
+  "version": "1.0.0",
+  "description": "Social network where people can share sport events or activities, as well as connect with other people practicing their same sport",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/letitechera/proyectofinal.git"
+  },
+  "keywords": [
+    "dpd",
+    "deployd",
+    "sportsApp"
+  ],
+  "dependencies": {
+  },
+  "contributors": [
+{
+      "name": "Leticia Techera",
+      "email": "letitech@gmail.com",
+      "url": "https://github.com/letitechera",
+      "contributions": 29,
+      "additions": 154.978,
+      "deletions": 124.211,
+      "hireable": true
+    },
+
+    {
+      "name": "Laura Garcia",
+      "email": "laugmo04@gmail.com",
+      "url": "https://github.com/laugmo",
+      "contributions": 25,
+      "additions": 35.061,
+      "deletions": 20.324,
+      "hireable": false
+    }
+  ]
 }

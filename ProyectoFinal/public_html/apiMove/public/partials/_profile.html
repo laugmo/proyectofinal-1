@@ -1,5 +1,7 @@
-<div ng-app="app.profile">
-    <div class="container" ng-controller="UpdateProfile" ng-init="loadProfileFields()">
+<div class="bootstrap-iso" ng-app="app.profile">
+ <div class="container-fluid">
+  <div class="row">
+    <div class="container col-md-6 col-sm-6 col-xs-12" ng-controller="UpdateProfile" ng-init="loadProfileFields()">
         <h4 >Mi Perfil</h4>
 
         <form>
@@ -11,9 +13,16 @@
                 <label for="name">Nombre</label>
                 <input type="text" class="form-control" ng-model="currentUser.name" id="name" placeholder="Nombre">
             </div>
-            <div class="form-group">
-                <label  for="birthDate">Fecha de Nacimiento</label>
-                <input type="date" class="form-control" ng-model="currentUser.birthDate" id="birthDate" placeholder="Fecha de Nacimiento">
+               
+            <div class="well">
+                <label class="control-label" >Fecha de Nacimiento</label>
+                <div class="form-group"> <!-- Date input -->
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar">
+                        </i>
+                    </div>
+                    <input class="form-control" id="date" ng-model="currentUser.birthDate" name="date" ng-change="selectedDate()" placeholder="DD-MM-AAAA" type="text"/>
+                </div>
             </div>
             <div class="form-group">
                 <label for="address">Dirección</label>
@@ -75,8 +84,9 @@
                     <input type="checkbox" ng-model="corp" id="corp"> Si
                 </label>
             </div>
-            <button type="submit" ng-click="updateUser(currentUser.name, currentUser.birthDate, currentUser.address, 
-                        currentUser.neighbourhood, currentUser.city, currentUser.phone, currentUser.sports )" class="btn btn-default">Actualizar Perfil</button>
+            <button type="submit" ng-click="updateUser(currentUser.name, currentUser.address, currentUser.neighbourhood, currentUser.city, currentUser.phone, currentUser.sports )" class="btn btn-default">Actualizar Perfil</button>
         </form>
     </div>
+         </div>         </div>
+
 </div>
