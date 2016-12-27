@@ -38,27 +38,26 @@ angular.module('app.home', [])
                                         // Alert if there's an error
                                         return alert(err.message || "Error al buscar eventos");
                                     }
-                                    $scope.eventosEncontrados = result;
-                                    if(result.length == 0 ) 
+                                    $scope.eventos = result;
+                                    console.log(result);
+                                    if (result.length == 0) {
                                         $scope.searched = true;
-                                    else
+                                    } else
                                         $scope.searched = false;
                                     $scope.$apply();
-                                    
                                 });
-
+                    } else {
+                        $scope.reloadAll();
                     }
                 };
-
-            }])
-        .controller('GetEventsController', ['$scope', function ($scope) {
-                $scope.getEvents = function () {
+                $scope.reloadAll = function () {
                     dpd.events.get(function (result, err) {
                         if (err) {
                             // Alert if there's an error
                             return alert(err.message || "Error al buscar eventos");
                         }
                         $scope.eventos = result;
+                        $scope.$apply();
                     });
                 };
             }]);
