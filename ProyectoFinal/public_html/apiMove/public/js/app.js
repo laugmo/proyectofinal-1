@@ -45,11 +45,17 @@ angular.module('app', ['app.home', 'app.user', 'app.events', 'app.profile'/*, 'n
             });
 
             $scope.myProfile = function (user) {
-
                 if (user) {
                     $scope.includePath = "partials/_profile.html";
                 }
+            };
 
+            $scope.goToHome = function () {
+                if (user) {
+                    $scope.includePath = "partials/_user.html";
+                } else {
+                    $scope.includePath = "partials/_home.html";
+                }
             };
 
             $scope.logout = function () {

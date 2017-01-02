@@ -38,6 +38,12 @@ body p{
     padding: 5px 0;
     font-size: 16px;
 }
+.event-edit-icon{
+    float: right;
+    margin-right: 5px;
+    position: relative;
+    z-index: 2;
+}
 .event-info {
 }
 .event-footer {

@@ -39,7 +39,7 @@ angular.module('app.profile', [])
                     dpd.users.me(function (user) {
                         if (user) {
                             $scope.currentUser = user;
-                            $scope.apply();
+                            $scope.$apply();
                         }
                         var date_input = $('input[name="date"]');
                         var options = {
@@ -79,8 +79,8 @@ angular.module('app.profile', [])
                             return alert(err.message || "Error al buscar deportes");
                         }
 
-                        $scope.sports = result;
-                        $scope.apply();
+                        $scope.sportsList = result;
+                        $scope.$apply();
                     });
 
 //                    // selected sports
