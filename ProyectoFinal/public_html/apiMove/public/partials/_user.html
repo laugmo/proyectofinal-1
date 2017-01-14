@@ -1,18 +1,74 @@
 <!DOCTYPE html>
 <div ng-app="app.user">
 
-    <div class="container" ng-controller="GenerateSuggestion" ng-cloak >
-        <div>
+    <div ng-controller="GenerateSuggestion" ng-cloak >
+        <div class="container">
             <h4>Eventos sugeridos</h4>
             <label class="alert" ng-hide="sugerencias.length">No se encontraron eventos</label>
-            <div class="col-md-2 column event-box" ng-repeat="evento in sugerencias">
+            <div class="col-md-2 column event-box" ng-repeat="evento in sugerencias" id="{{evento.id}}">
                 <img src="http://placehold.it/460x250/A8DC63/ffffff&text=EVENTO" class="img-responsive">
-                <div class="event-title">{{evento.name}}<i class="fa fa-pencil event-edit-icon" data-toggle="modal" data-target="#eventModal" ></i></div>
+                <div class="event-title">{{evento.name}}
+                    <i class="fa fa-pencil event-edit-icon" data-toggle="modal" data-target="#eventModal" ng-click="editEvent(evento.id)"></i>
+                </div>
                 <div class="event-info">{{evento.location.address}}</div>
                 <div class="event-info">{{evento.location.neighbourhood}}</div>
                 <div class="event-info">{{evento.date.date}}</div>
                 <div class="event-info">{{evento.date.time}}</div>
-                <div class="event-footer"><div class="pull-right"><a href="#" class="btn btn-default btn-sm" role="button">Participar</a></div><div class="pricetext"><i class="fa fa-male"></i> {{evento.participants.length}}</div></div>
+                <div class="event-footer">
+                    <div class="pull-right">
+                        <a class="btn btn-default btn-sm" ng-click="participate(evento.id)">{{getPart(evento)}}</a>
+                    </div>
+                    <div class="pricetext">
+                        <i class="fa fa-male"></i> {{evento.participants.length}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Event Edit Modal -->
+        <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true" style="display: none">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h2>Editar Evento</h2>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" ng-model="currentEvent.name" id="eventName" placeholder="Nombre del Evento">
+                            </div>
+                            <div class="form-group">
+                                <input type="time" class="form-control" ng-model="currentEvent.date.time" id="eventName" placeholder="hh:mm">
+                            </div>
+                            <div class="form-group">
+                                <input type="date" class="form-control" ng-model="currentEvent.date.date" id="eventName">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" ng-model="currentEvent.location.address" id="eventLocation1" placeholder="Address">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" ng-model="currentEvent.location.city" id="eventLocation2" placeholder="City">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" ng-model="currentEvent.location.country" id="eventLocation3" placeholder="País">
+                            </div>
+                            <div class="form-group">
+                                <input type="file" class="form-control" id="eventLogo">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" ng-model="currentEvent.description" id="eventDescr" placeholder="Escribe una descripción">
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="currentEvent.public" id="corp"> Evento público
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" ng-click="submitEditedEvent()" data-dismiss="modal" class="btn btn-default">Guardar</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -30,41 +86,6 @@
             </ul>
         </div>
     </div>
+    
 </div>
 
-<!-- Event Edit Modal -->
-<div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true" style="display: none">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel2">Register</h4>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <input type="email" class="form-control" ng-model="username" id="username" placeholder="Usuario / Email">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" ng-model="name" id="name" placeholder="Nombre">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" ng-model="password" id="password" placeholder="Contraseña">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" ng-model="confirm" id="confirm" placeholder="Confirmar contraseña">
-                    </div>
-                    <div class="checkbox">
-                        <label for="username">Eres una empresa?</label>
-                        <label>
-                            <input type="checkbox" ng-model="corp" id="corp"> Si
-                        </label>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" ng-click="submitRegister(username, name, password, corp, confirm)" class="btn btn-default">Registrarse</button>
-            </div>
-        </div>
-    </div>
-</div>
