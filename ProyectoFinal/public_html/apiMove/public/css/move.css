@@ -43,6 +43,7 @@ body p{
     margin-right: 5px;
     position: relative;
     z-index: 2;
+    cursor: pointer;
 }
 .event-info {
 }
