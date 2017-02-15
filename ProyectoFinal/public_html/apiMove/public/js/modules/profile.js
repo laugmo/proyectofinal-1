@@ -3,6 +3,7 @@
 angular.module('app.profile', [])
         .config(['$routeProvider', function config($routeProvider) {
                 $routeProvider.when('/profile', {
+                    redirectTo: '/profile',
                     controller: 'ProfileController',
                     templateUrl: 'partials/_profile.html'
                 });
@@ -46,31 +47,31 @@ angular.module('app.profile', [])
                             format: 'dd-mm-yyyy',
                             todayHighlight: true,
                             autoclose: true
-                        };   
-                    date_input.datepicker(options);
+                        };
+                        date_input.datepicker(options);
                     });
                 };
                 $scope.validDates = function (days, year, month) {
-                            
-                                var filtered = [];
-                                var now = new Date();
-                                var over18Day = now.getUTCDate();
-                                var over18Month = now.getUTCMonth() + 1;
-                                var over18Year = now.getUTCFullYear() - 18;
-                                if (year === over18Year && month.id === over18Month) {
-                                    angular.forEach(days, function (day) {
-                                        if (day <= over18Day) {
-                                            filtered.push(day);
-                                        }
-                                    });
-                                } else {
-                                    angular.forEach(days, function (day) {
-                                        filtered.push(day);
-                                    });
-                                }
-                                return filtered;
-                            };
-                        
+
+                    var filtered = [];
+                    var now = new Date();
+                    var over18Day = now.getUTCDate();
+                    var over18Month = now.getUTCMonth() + 1;
+                    var over18Year = now.getUTCFullYear() - 18;
+                    if (year === over18Year && month.id === over18Month) {
+                        angular.forEach(days, function (day) {
+                            if (day <= over18Day) {
+                                filtered.push(day);
+                            }
+                        });
+                    } else {
+                        angular.forEach(days, function (day) {
+                            filtered.push(day);
+                        });
+                    }
+                    return filtered;
+                };
+
                 $scope.getSports = function (user) {
                     // sports
                     dpd.sports.get(function (result, err) {
@@ -88,7 +89,7 @@ angular.module('app.profile', [])
 //                    $scope.apply();
 
                 };
-                
+
                 // parse a date in dd-mm-yyyy format
 //                function parseDate(currentDob) {
 //                    var dateParts = currentDob.split("-");
@@ -99,13 +100,13 @@ angular.module('app.profile', [])
 //                    return new Date(month, day, year); // months are 0-based
 //                }
                 $scope.selectedDate = function (user) {
-                        var currentDob = $("#date").val();
-                       var dateParts = currentDob.split("-");
-                        dpd.users.post(user.id, {
-                                birthDate: currentDob,
-                                age: calculateAge(dateParts[1],dateParts[0],dateParts[2])
-                            });
-                            
+                    var currentDob = $("#date").val();
+                    var dateParts = currentDob.split("-");
+                    dpd.users.post(user.id, {
+                        birthDate: currentDob,
+                        age: calculateAge(dateParts[1], dateParts[0], dateParts[2])
+                    });
+
                 };
                 $scope.updateUser = function (name, address, neighbourhood, city, phone, sports) {
                     dpd.users.me(function (user) {

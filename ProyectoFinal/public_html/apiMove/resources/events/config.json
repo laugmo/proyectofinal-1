@@ -57,13 +57,29 @@
 			"id": "participants",
 			"order": 6
 		},
+		"minAge": {
+			"name": "minAge",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "minAge",
+			"order": 7
+		},
+		"maxAge": {
+			"name": "maxAge",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "maxAge",
+			"order": 8
+		},
 		"public": {
 			"name": "public",
 			"type": "boolean",
 			"typeLabel": "boolean",
 			"required": false,
 			"id": "public",
-			"order": 7
+			"order": 9
 		},
 		"sports": {
 			"name": "sports",
@@ -71,7 +87,7 @@
 			"typeLabel": "string",
 			"required": false,
 			"id": "sports",
-			"order": 8
+			"order": 10
 		},
 		"area": {
 			"name": "area",
@@ -79,7 +95,7 @@
 			"typeLabel": "string",
 			"required": false,
 			"id": "area",
-			"order": 9
+			"order": 11
 		},
 		"discipline": {
 			"name": "discipline",
@@ -87,7 +103,7 @@
 			"typeLabel": "string",
 			"required": false,
 			"id": "discipline",
-			"order": 10
+			"order": 12
 		},
 		"latitude": {
 			"name": "latitude",
@@ -95,7 +111,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "latitude",
-			"order": 11
+			"order": 13
 		},
 		"longitude": {
 			"name": "longitude",
@@ -103,7 +119,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "longitude",
-			"order": 12
+			"order": 14
 		},
 		"createdTime": {
 			"name": "createdTime",
@@ -111,7 +127,7 @@
 			"typeLabel": "string",
 			"required": false,
 			"id": "createdTime",
-			"order": 13
+			"order": 15
 		}
 	}
 }

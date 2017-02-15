@@ -11,14 +11,23 @@
         </section>
         <div>
             <p class="bg-warning" ng-show="searched">No se encontraron eventos</p>
-            <div class="col-md-2 column event-box" ng-repeat="evento in eventos">
+            <div class="col-md-2 col-sm-2 col-xs-12 col-lg-2 column event-box" ng-repeat="evento in eventos" id="{{evento.id}}">
                 <img src="http://placehold.it/460x250/A8DC63/ffffff&text=EVENTO" class="img-responsive">
-                <div class="event-title">{{evento.name}}</div>
+                <div class="event-title">{{evento.name}}
+                    <i class="fa fa-pencil event-edit-icon" data-toggle="modal" data-target="#eventModal" ng-click="editEvent(evento.id)"></i>
+                </div>
                 <div class="event-info">{{evento.location.address}}</div>
                 <div class="event-info">{{evento.location.neighbourhood}}</div>
                 <div class="event-info">{{evento.date.date}}</div>
                 <div class="event-info">{{evento.date.time}}</div>
-                <div class="event-footer"><div class="pull-right"><a href="#" class="btn btn-default btn-sm" role="button">Participar</a></div><div class="pricetext"><i class="fa fa-male"></i> {{evento.participants.length}}</div></div>
+                <div class="event-footer">
+                    <div class="pull-right">
+                        <a class="btn btn-default btn-sm" ng-click="warnLogin()">Participar</a>
+                    </div>
+                    <div class="pricetext">
+                        <i class="fa fa-male"></i> {{evento.participants.length}}
+                    </div>
+                </div>
             </div>
         </div>
     </div>   
