@@ -13,8 +13,6 @@
                 <label for="name">Nombre</label>
                 <input type="text" class="form-control" ng-model="currentUser.name" id="name" placeholder="Nombre">
             </div>
-               
-            <div class="well">
                 <label class="control-label" >Fecha de Nacimiento</label>
                 <div class="form-group"> <!-- Date input -->
                     <div class="input-group-addon">
@@ -23,7 +21,6 @@
                     </div>
                     <input class="form-control" id="date" ng-model="currentUser.birthDate" name="date" ng-change="selectedDate()" placeholder="DD-MM-AAAA" type="text"/>
                 </div>
-            </div>
             <div class="form-group">
                 <label for="address">Dirección</label>
                 <input type="text" class="form-control" ng-model="currentUser.address" id="address" placeholder="Dirección">
@@ -63,7 +60,7 @@
         {{sport.name}} urlPhoto -->
 
                <ul class="form-control"  id="sports" ng-init='getSports(currentUser)'>
-                   <li ng-repeat="sport in sports">
+                   <li ng-repeat="sport in sportsList">
                        <label class="clearfix"><b>{{sport.name}}</b></label>                    
                        </br>
                    </li>   

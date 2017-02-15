@@ -1,6 +1,6 @@
 /* App Module */
 
-angular.module('app', ['app.home', 'app.user', 'app.events', 'app.profile'/*, 'ngSanitize'*/])
+angular.module('app', ['app.home', 'app.user', 'app.events', 'app.profile','flow'])
         .config(function myAppConfig($routeProvider) {
             'use strict';
             $routeProvider.otherwise({
@@ -15,41 +15,28 @@ angular.module('app', ['app.home', 'app.user', 'app.events', 'app.profile'/*, 'n
                 if (user) {
                     $scope.userLoaded = true;
                     $scope.currentUser = user;
-                    $scope.htmlLoginHead =
-                            '<li><a ng-show="userLoaded" disabled="disabled"> Buen día, {{currentUser.name}}!</a></li>' +
-                            '<li ng-show="userLoaded" class="dropdown">' +
-                            '<a href="#" class="dropdown-toggle user-icon" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span></span></a>' +
-                            '<ul class="dropdown-menu">' +
-                            '<li><a ng-click="myProfile(currentUser)">Mi Perfil</a></li>' +
-                            '<li><a href="#">Another action</a></li>' +
-                            '<li><a href="#">Something else here</a></li>' +
-                            '<li role="separator" class="divider"></li>' +
-                            '<li><a href="#">Separated link</a></li>' +
-                            '<li role="separator" class="divider"></li>' +
-                            '<li><a href="#">One more separated link</a></li>' +
-                            '</ul>' +
-                            '</li>' +
-                            '<li><a ng-show="userLoaded" ng-click="logout()">Logout</a></li>';
                     $scope.includePath = "partials/_user.html";
                     $scope.$apply();
 
                 } else {
                     $scope.userLoaded = false;
-                    $scope.htmlLoginHead =
-                            '<li><a data-toggle="modal" data-target="#loginModal" ng-hide="userLoaded">Login</a></li>' +
-                            '<li><a data-toggle="modal" data-target="#registModal" ng-hide="userLoaded">Registrarse</a></li>';
                     $scope.includePath = "partials/_home.html";
                     $scope.$apply();
-
                 }
             });
 
             $scope.myProfile = function (user) {
-
                 if (user) {
                     $scope.includePath = "partials/_profile.html";
                 }
+            };
 
+            $scope.goToHome = function () {
+                if (user) {
+                    $scope.includePath = "partials/_user.html";
+                } else {
+                    $scope.includePath = "partials/_home.html";
+                }
             };
 
             $scope.logout = function () {
@@ -89,7 +76,6 @@ angular.module('app', ['app.home', 'app.user', 'app.events', 'app.profile'/*, 'n
                 }
                 return false;
             };
-
         });
 
 

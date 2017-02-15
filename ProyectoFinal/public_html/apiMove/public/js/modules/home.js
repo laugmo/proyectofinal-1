@@ -2,8 +2,9 @@
 
 angular.module('app.home', [])
         .config(['$routeProvider', function config($routeProvider) {
-                $routeProvider.when('/home', {
+                $routeProvider.when('/', {
                     templateUrl: 'partials/_home.html',
+                    redirectTo: '/',
                     controller: 'SearchEventController',
                     controllerAs: 'searcEventCtrl'
                 });
@@ -59,6 +60,9 @@ angular.module('app.home', [])
                         $scope.eventos = result;
                         $scope.$apply();
                     });
+                };
+                $scope.warnLogin = function(){
+                    alert("Inicia sesión para poder participar de eventos");
                 };
             }]);
 
