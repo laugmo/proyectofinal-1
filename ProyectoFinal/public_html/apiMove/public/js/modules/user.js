@@ -1,8 +1,9 @@
 'use strict';
 
-angular.module('app.user', [])
+angular.module('app.user', ['flow'])
         .config(['$routeProvider', function config($routeProvider) {
                 $routeProvider.when('/user', {
+                    redirectTo: '/myMove',
                     controller: 'UserController',
                     templateUrl: 'partials/_user.html'
                 });
@@ -14,6 +15,14 @@ angular.module('app.user', [])
 
                 dpd.users.me(function (user) {
                     $scope.reloadSugg(user);
+                    $scope.$$phase || $scope.$apply();
+                    var date_input = $('input[name="date"]');
+                    var options = {
+                        format: 'dd-mm-yyyy',
+                        todayHighlight: true,
+                        autoclose: true,
+                    };
+                    date_input.datepicker(options);
                 });
 
                 $scope.reloadSugg = function (user) {
@@ -97,6 +106,13 @@ angular.module('app.user', [])
                     }
                     return false;
                 }
+
+                // FILE UPLOADS --------------------
+
+                $scope.fileHandler = function ($file, $message, $flow) {
+                    console.log($file);
+                    console.log($flow);
+                };
 
             }])
 
